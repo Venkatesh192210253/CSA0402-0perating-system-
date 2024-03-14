@@ -27,6 +27,7 @@ printf("Enter the priority: ");
 scanf("%d", &processes[i].priority);
 ASCII_number++;
 }
+// Sort processes based on priority (Highest priority first)
 for (int i = 0; i < number_of_processes - 1; i++) {
 position = i;
 for (int j = i + 1; j < number_of_processes; j++) {
@@ -38,6 +39,7 @@ processes[i] = processes[position];
 processes[position] = temp_process;
 }
 processes[0].waiting_time = 0;
+// Calculate waiting time for each process
 for (int i = 1; i < number_of_processes; i++) {
 processes[i].waiting_time = 0;
 for (int j = 0; j < i; j++) {
@@ -46,6 +48,7 @@ processes[i].waiting_time += processes[j].burst_time;
 total_waiting_time += processes[i].waiting_time;
 }
 average_waiting_time = (float) total_waiting_time / (float) number_of_processes;
+// Calculate turnaround time for each process and display process details
 printf("\n\nProcess_name\tBurst Time\tWaiting Time\tTurnaround Time\n");
 printf("-----------------------------------------------------------\n");
 int total_turnaround_time = 0;
