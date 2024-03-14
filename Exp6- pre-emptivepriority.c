@@ -7,6 +7,7 @@ float avg_wt, avg_tat;
 printf("Total number of processes in the system: ");
 scanf("%d", &NOP);
 y = NOP;
+// Input arrival and burst time for each process
 for(i=0; i<NOP; i++)
 {
 printf("\nEnter the Arrival and Burst time of Process[%d]\n", i+1);
@@ -18,6 +19,7 @@ temp[i] = bt[i];
 }
 printf("Enter the Time Quantum for the process: ");
 scanf("%d", &quant);
+// Sorting processes based on arrival time
 for(i=0; i<NOP-1; i++) {
 for(int j=i+1; j<NOP; j++) {
 if(at[i] > at[j]) {
@@ -59,4 +61,4 @@ avg_tat = (float)tat / NOP;
 printf("\nAverage Turn Around Time: %.2f", avg_tat);
 printf("\nAverage Waiting Time: %.2f\n", avg_wt);
 return 0;
-}  
+}
